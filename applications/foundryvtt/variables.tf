@@ -2,6 +2,8 @@ variable prvt_key {}
 
 variable pub_key {}
 
+variable vpc_id {}
+
 variable image {
   type = string
   default = "rockylinux-9-x64"

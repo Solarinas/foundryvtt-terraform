@@ -19,6 +19,7 @@ resource "digitalocean_droplet" "foundryvtt" {
   name = local.droplet_name
   region = var.region
   size = var.size
+  vpc_uuid = var.vpc_id
 
   ssh_keys = [
     data.digitalocean_ssh_key.dmurray.id
