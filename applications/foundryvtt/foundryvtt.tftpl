@@ -1,0 +1,21 @@
+#cloud-config
+users:
+  - name: solar 
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, sudo
+    ssh-authorized-keys:
+      - ${pub_key}
+write_files:
+  - path: /etc/ssh/sshd_config.d/20-ssh-lockdown.conf
+    content: |
+      PermitRootLogin no
+      PasswordAuthentication no
+    permissions: "0600"
+    owner: root:root
+package_upgrade: true
+packages:
+  - podman
+  - acl
+  - iptables
+  - python3-cryptography
