@@ -1,8 +1,14 @@
 terraform {
+  cloud {
+    organization = "solar-solutions"  
+    workspaces {
+      tags = [ "foundryvtt" ]
+    }
+  }
   required_providers {
     digitalocean = {
       source = "digitalocean/digitalocean"
-      version = "2.21.0"
+      version = "2.28.0"
     }
   }
 }
